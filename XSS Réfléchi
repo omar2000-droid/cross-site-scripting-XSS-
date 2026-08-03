@@ -1,3 +1,8 @@
 XSS Réfléchi
 
 Dans cette section, nous allons expliquer le script intersite réfléchi, décrire l'impact des attaques XSS réfléchies et expliquer comment trouver les vulnérabilités XSS réfléchies. 
+
+XSS Réfléchi : le script malveillant provient de la requête HTTP actuelle.
+
+
+
