@@ -1,58 +1,16 @@
 le xss est une faille qui permet d'injecter du code malveillant dans un site web legitime.
+
 lorsque ce code est executer par un utilisateur, cela permet a l'attaquant de compromettre les informatons personnelles de l'utilisateur.
 
 Quels sont les types d'attaques XSS ?
 
 Il existe trois principaux types d'attaques XSS. Ceux-ci sont:
 
-    Réfléchi XSS, où le script malveillant provient de la requête HTTP actuelle.
+    XSS Réfléchi, où le script malveillant provient de la requête HTTP actuell
 
-exple : 1. Le fonctionnement normal (sans attaque)
-
-    Un utilisateur visite l'adresse URL :
-
-    [https://insecure-website.com/status?message=All+is+well](https://insecure-website.com/status?message=All+is+well).
-
-    Le serveur web prend le paramètre reçu dans l'URL (message=All+is+well.) et l'insère directement dans la page HTML de réponse :
-
-    <p>Status: All is well.</p>
-
-    Le navigateur affiche simplement à l'écran : Status: All is well.
-
-2. Où se trouve la vulnérabilité ?
-
-La vulnérabilité vient du fait que le site web fait aveuglément confiance à ce qui est écrit dans l'URL. Il prend le texte du paramètre message et le réaffiche dans la page sans nettoyer ni filtrer les caractères spéciaux (comme < ou >).
-3. Comment un pirate en profite (L'attaque)
-
-L'attaquant va remplacer le texte All+is+well. dans l'URL par un script JavaScript malveillant, par exemple :
-
-[https://insecure-website.com/status?message=](https://insecure-website.com/status?message=)<script>alert('XSS')</script>
-
-Si une victime clique sur ce lien piégé :
-
-    Le serveur reçoit le paramètre message contenant <script>alert('XSS')</script>.
-
-    Le serveur "réfléchit" cette valeur et génère le code HTML suivant :
-
-    <p>Status: <script>alert('XSS')</script></p>
-
-    Lorsque le navigateur de la victime charge la page, il interprète la balise <script> comme du code à exécuter et lance l'alerte JavaScript.
-
-En résumé
-
-Cet exemple montre la vulnérabilité fondamentale : les données envoyées dans la requête HTTP sont réaffichées directement dans la réponse HTML sans être sécurisées (échappées).
-
-le script malveillant permet de compromettre uniquement les informations de l'utilisateur qui l'a executer
-
-    Stocké XSS, où le script malveillant provient de la base de données du site Web.
-
-
+    XSS  Stocké, où le script malveillant provient de la base de données du site Web.
 
     XSS basé sur DOM, où la vulnérabilité existe dans le code côté client plutôt que dans le code côté serveur.
-
-NB :
-le XSS ne s'attaque pas directement à la base de données.
-Le XSS est une attaque côté client (Client-Side) : le code malveillant s'exécute uniquement dans le navigateur de la victime.
 
 
 
