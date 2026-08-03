@@ -1,5 +1,5 @@
 le xss est une faille qui permet d'injecter du code malveillant dans un site web legitime.
-lorsque ce code est executer par un utilisateur, cela permet a l'attaquant de compromettre les inforlatons personnelles de l'utilisateur.
+lorsque ce code est executer par un utilisateur, cela permet a l'attaquant de compromettre les informatons personnelles de l'utilisateur.
 
 Quels sont les types d'attaques XSS ?
 
