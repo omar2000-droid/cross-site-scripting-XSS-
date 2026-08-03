@@ -1,2 +1,23 @@
 le xss est une faille qui permet d'injecter du code malveillant dans un site web legitime.
 lorsque ce code est executer par un utilisateur, cela permet a l'attaquant de compromettre les inforlatons personnelles de l'utilisateur.
+
+Quels sont les types d'attaques XSS ?
+
+Il existe trois principaux types d'attaques XSS. Ceux-ci sont:
+
+    Réfléchi XSS, où le script malveillant provient de la requête HTTP actuelle.
+
+le script malveillant permet de compromettre uniquement les informations de l'utilisateur qui l'a executer
+
+    Stocké XSS, où le script malveillant provient de la base de données du site Web.
+
+
+
+    XSS basé sur DOM, où la vulnérabilité existe dans le code côté client plutôt que dans le code côté serveur.
+
+NB :
+le XSS ne s'attaque pas directement à la base de données.
+Le XSS est une attaque côté client (Client-Side) : le code malveillant s'exécute uniquement dans le navigateur de la victime.
+
+
+
