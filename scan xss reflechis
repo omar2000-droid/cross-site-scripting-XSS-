@@ -1,0 +1,19 @@
+Le scanner actif de Burp Suite Professional détecte automatiquement les vulnérabilités XSS réfléchies en injectant des payloads spécifiques dans chaque point d'entrée (insertion point) 
+de la requête HTTP, puis en vérifiant si et comment ces valeurs sont réinfléchies dans la réponse (dans le corps HTML, un attribut, une balise <script>, etc.).
+Pour cibler efficacement le XSS réfléchi avec Burp Scanner, voici la procédure étape par étape :1.Définir le périmètre (Target Scope) :
+Évite de scanner des domaines hors cible par erreur.Allez dans l'onglet Target > Scope Settings. Ajoutez l'URL cible (ex: [https://example.com](https://example.com)) 
+pour vous assurer que le scanner ne traitera que le domaine souhaité.2.Capturer le trafic cible :
+Renseigner le Site Map.Naviguez sur l'application cible avec le navigateur intégré de Burp (Proxy > Open Browser) 
+en soumettant des formulaires, des champs de recherche et des paramètres d'URL pour alimenter l'historique HTTP (Proxy > HTTP history).
+3.Lancer un scan d'audit ciblé :Auditer uniquement les requêtes d'intérêt.Dans l'historique HTTP ou le Site Map, faites un clic droit sur la requête contenant les paramètres à tester 
+(ex: un champ de recherche) et sélectionnez Scan > Audit selected items.
+4.Ajuster la configuration du scan (Scan Configuration) :
+Optiimiser pour détecter le XSS réfléchi.Dans la fenêtre de configuration du scan :Choisissez Audit checks - Select individual checks.
+Sous la catégorie Bypassing controls / Injection vulnerabilities, assurez-vous que les options Cross-site scripting (reflected) et Input retrieval in response sont activées.
+Ajustez la vitesse du scan et la gestion des points d'injection dans l'onglet Optimization si nécessaire.5.Analyser et valider les vulnérabilités :Consulter le Dashboard.
+Rendez-vous dans l'onglet Dashboard. Lorsque le scanner trouve une alvéole XSS réfléchie :Examinez l'alerte Cross-site scripting (reflected).Consultez le détails de la requête/réponse : 
+Burp surligne précisément l'endroit où le payload a été réfléchi et explique le contexte d'exécution (ex: Reflected in HTML body, Reflected in attribute value).
+Conseils pour maximiser la détectionGestion des sessions : Si la page vulnérable nécessite une authentification, configurez une règle de gestion de session (Settings > Sessions) 
+pour que Burp maintienne la session active pendant la phase d'audit.Vérification manuelle (PoC) : Ne vous fiez pas uniquement au résultat du scanner. 
+Envoyez la requête identifiée vers le Repeater (Ctrl + R) pour ajuster le payload et valider le bypass des éventuels filtres WAF ou d'échappement.Points d'injection personnalisés : 
+Si le paramètre est encodé de façon atypique (ex: JSON imbriqué, headers HTTP spécifiques), vous pouvez définir manuellement les points d'injection lors du lancement du scan.
