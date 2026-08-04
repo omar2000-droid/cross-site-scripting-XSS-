@@ -1,0 +1,2 @@
+Le script intersite stocké (également connu sous le nom de XSS de second ordre ou de XSS persistant) se produit lorsqu'une application reçoit des données d'une source non fiable 
+et inclut ces données dans ses réponses HTTP ultérieures de manière non sécurisée.
